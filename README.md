@@ -9,6 +9,19 @@
 test.txtを読み込み、そのデータを形態素ごとに区切り形態素の数と形態素毎の出現頻度をprintします。元のデータのままではサイズが大きくそのまま実行するとエラーが発生するため、test.txtの冒頭の4000文字を抜き出してから形態素に区切りました。
 また、出現頻度が2以上の要素をoutput.csvとしてcsvファイルを出力しています。
 
+## インストール
+```
+git clone https://github.com/kytym/corpus.git
+cd corpus
+pip install -r requirements.txt
+```
+
+## 使い方
+data_shaping.py, corpus.pyの順で実行してください。
+```
+python data_shaping.py
+python corpus.py
+```
 
 ## 使用したライブラリ、バージョン
 python 3.12.3
