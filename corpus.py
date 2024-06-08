@@ -9,13 +9,21 @@ def main():
     df = f.read()
     f.close()
 
-    df = df[:4000]  #4000文字抜き出す
+    #文章を改行ごとにリスト化
+    df_list = df.splitlines()
+    df_list = [i for i in df_list if i != ""]
 
     nlp = spacy.load('ja_ginza')
-    doc = nlp(df)
+    
+    word_list = []
+    for i in df_list:
+        doc = nlp(i)
+        for token in doc:
+            word_list.append(token.text)
 
-    count_word = collections.Counter(token.text for token in doc)
-    print("形態素:",count_word)
+    count_word = collections.Counter(word_list)
+
+    #print("形態素:",count_word)
     print("形態素の数 ：",len(count_word))
 
     #形態素毎の出現頻度
